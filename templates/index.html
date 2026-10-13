@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Used Car Price Prediction</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+  <style>
+    body { background: #f4f6f9; }
+  </style>
+</head>
+<body>
+<div class="container py-5" style="max-width: 900px;">
+
+  
+  <div class="card shadow-sm border-0">
+    <div class="card-body p-4 p-md-5">
+      <h1 class="h3 mb-1">Used Car Price Prediction</h1>
+      <p class="text-muted mb-4">Fill in the car details. Dropdowns are searchable.</p>
+
+      <form method="POST" id="carForm">
+        <div class="row g-3">
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold" for="Brand">Brand</label>
+            <select id="Brand" name="Brand" required>
+              <option value=""></option>
+              <option value="0">Ambassador</option>
+              <option value="1">Audi</option>
+              <option value="2">Bentley</option>
+              <option value="3">Bmw</option>
+              <option value="4">Chevrolet</option>
+              <option value="5">Datsun</option>
+              <option value="6">Fiat</option>
+              <option value="7">Force</option>
+              <option value="8">Ford</option>
+              <option value="9">Honda</option>
+              <option value="10">Hyundai</option>
+              <option value="11">Isuzu</option>
+              <option value="12">Jaguar</option>
+              <option value="13">Jeep</option>
+              <option value="14">Lamborghini</option>
+              <option value="15">Land Rover</option>
+              <option value="16">Mahindra</option>
+              <option value="17">Maruti</option>
+              <option value="18">Mercedes-Benz</option>
+              <option value="19">Mini</option>
+              <option value="20">Mitsubishi</option>
+              <option value="21">Nissan</option>
+              <option value="22">Porsche</option>
+              <option value="23">Renault</option>
+              <option value="24">Skoda</option>
+              <option value="25">Smart</option>
+              <option value="26">Tata</option>
+              <option value="27">Toyota</option>
+              <option value="28">Volkswagen</option>
+              <option value="29">Volvo</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold" for="Model">Model</label>
+            <select id="Model" name="Model" required>
+              <option value=""></option>
+              <option value="0">1 Series</option>
+              <option value="1">1000 AC</option>
+              <option value="2">3 Series</option>
+              <option value="3">5 Series</option>
+              <option value="4">6 Series</option>
+              <option value="5">7 Series</option>
+              <option value="6">800 AC</option>
+              <option value="7">800 DX</option>
+              <option value="8">800 Std</option>
+              <option value="9">A Class</option>
+              <option value="10">A-Star AT</option>
+              <option value="11">A-Star Lxi</option>
+              <option value="12">A-Star Vxi</option>
+              <option value="13">A3 35</option>
+              <option value="14">A4 1.8</option>
+              <option value="15">A4 2.0</option>
+              <option value="16">A4 3.0</option>
+              <option value="17">A4 3.2</option>
+              <option value="18">A4 30</option>
+              <option value="19">A4 35</option>
+              <option value="20">A4 New</option>
+              <option value="21">A6 2.0</option>
+              <option value="22">A6 2.7</option>
+              <option value="23">A6 2.8</option>
+              <option value="24">A6 2011-2015</option>
+              <option value="25">A6 3.0</option>
+              <option value="26">A6 35</option>
+              <option value="27">A7 2011-2015</option>
+              <option value="28">A8 L</option>
+              <option value="29">Accent CRDi</option>
+              <option value="30">Accent Executive</option>
+              <option value="31">Accent GLE</option>
+              <option value="32">Accent GLS</option>
+              <option value="33">Accord 2.4</option>
+              <option value="34">Accord 2001-2003</option>
+              <option value="35">Accord V6</option>
+              <option value="36">Accord VTi-L</option>
+              <option value="37">Alto 800</option>
+              <option value="38">Alto Green</option>
+              <option value="39">Alto K10</option>
+              <option value="40">Alto LX</option>
+              <option value="41">Alto LXI</option>
+              <option value="42">Alto LXi</option>
+              <option value="43">Alto Std</option>
+              <option value="44">Alto VXi</option>
+              <option value="45">Alto Vxi</option>
+              <option value="46">Amaze E</option>
+              <option value="47">Amaze EX</option>
+              <option value="48">Amaze S</option>
+              <option value="49">Amaze SX</option>
+              <option value="50">Amaze V</option>
+              <option value="51">Amaze VX</option>
+              <option value="52">Ameo 1.2</option>
+              <option value="53">Ameo 1.5</option>
+              <option value="54">Aspire Ambiente</option>
+              <option value="55">Aspire Titanium</option>
+              <option value="56">Aveo 1.4</option>
+              <option value="57">Aveo 1.6</option>
+              <option value="58">Aveo U-VA</option>
+              <option value="59">Avventura MULTIJET</option>
+              <option value="60">B Class</option>
+              <option value="61">BR-V i-DTEC</option>
+              <option value="62">BR-V i-VTEC</option>
+              <option value="63">BRV i-VTEC</option>
+              <option value="64">Baleno Alpha</option>
+              <option value="65">Baleno Delta</option>
+              <option value="66">Baleno LXI</option>
+              <option value="67">Baleno RS</option>
+              <option value="68">Baleno Sigma</option>
+              <option value="69">Baleno Vxi</option>
+              <option value="70">Baleno Zeta</option>
+              <option value="71">Beat Diesel</option>
+              <option value="72">Beat LS</option>
+              <option value="73">Beat LT</option>
+              <option value="74">Beat Option</option>
+              <option value="75">Beetle 2.0</option>
+              <option value="76">Bolero DI</option>
+              <option value="77">Bolero SLE</option>
+              <option value="78">Bolero SLX</option>
+              <option value="79">Bolero VLX</option>
+              <option value="80">Bolero ZLX</option>
+              <option value="81">Bolero mHAWK</option>
+              <option value="82">Bolt Quadrajet</option>
+              <option value="83">Bolt Revotron</option>
+              <option value="84">Boxster S</option>
+              <option value="85">Brio 1.2</option>
+              <option value="86">Brio E</option>
+              <option value="87">Brio EX</option>
+              <option value="88">Brio S</option>
+              <option value="89">Brio V</option>
+              <option value="90">Brio VX</option>
+              <option value="91">C-Class Progressive</option>
+              <option value="92">CLA 200</option>
+              <option value="93">CLS-Class 2006-2010</option>
+              <option value="94">CR-V 2.0</option>
+              <option value="95">CR-V 2.0L</option>
+              <option value="96">CR-V 2.4</option>
+              <option value="97">CR-V 2.4L</option>
+              <option value="98">CR-V AT</option>
+              <option value="99">CR-V Petrol</option>
+              <option value="100">CR-V RVi</option>
+              <option value="101">CR-V Sport</option>
+              <option value="102">Camry 2.5</option>
+              <option value="103">Camry A/T</option>
+              <option value="104">Camry Hybrid</option>
+              <option value="105">Camry W2</option>
+              <option value="106">Camry W4</option>
+              <option value="107">Captiva LT</option>
+              <option value="108">Captiva LTZ</option>
+              <option value="109">Captur 1.5</option>
+              <option value="110">Cayenne 2009-2014</option>
+              <option value="111">Cayenne Base</option>
+              <option value="112">Cayenne Diesel</option>
+              <option value="113">Cayenne S</option>
+              <option value="114">Cayenne Turbo</option>
+              <option value="115">Cayman 2009-2012</option>
+              <option value="116">Cedia Sports</option>
+              <option value="117">Celerio CNG</option>
+              <option value="118">Celerio LDi</option>
+              <option value="119">Celerio LXI</option>
+              <option value="120">Celerio VXI</option>
+              <option value="121">Celerio ZDi</option>
+              <option value="122">Celerio ZXI</option>
+              <option value="123">Ciaz 1.3</option>
+              <option value="124">Ciaz 1.4</option>
+              <option value="125">Ciaz AT</option>
+              <option value="126">Ciaz Alpha</option>
+              <option value="127">Ciaz RS</option>
+              <option value="128">Ciaz VDI</option>
+              <option value="129">Ciaz VDi</option>
+              <option value="130">Ciaz VXi</option>
+              <option value="131">Ciaz ZDi</option>
+              <option value="132">Ciaz ZXi</option>
+              <option value="133">Ciaz Zeta</option>
+              <option value="134">City 1.3</option>
+              <option value="135">City 1.5</option>
+              <option value="136">City Corporate</option>
+              <option value="137">City V</option>
+              <option value="138">City ZX</option>
+              <option value="139">City i</option>
+              <option value="140">City i-DTEC</option>
+              <option value="141">City i-VTEC</option>
+              <option value="142">Civic 2006-2010</option>
+              <option value="143">Civic 2010-2013</option>
+              <option value="144">Classic 1.4</option>
+              <option value="145">Classic Nova</option>
+              <option value="146">Clubman Cooper</option>
+              <option value="147">Compass 1.4</option>
+              <option value="148">Compass 2.0</option>
+              <option value="149">Continental Flying</option>
+              <option value="150">Cooper 3</option>
+              <option value="151">Cooper 5</option>
+              <option value="152">Cooper Convertible</option>
+              <option value="153">Cooper Countryman</option>
+              <option value="154">Cooper S</option>
+              <option value="155">Corolla 1.8</option>
+              <option value="156">Corolla Altis</option>
+              <option value="157">Corolla DX</option>
+              <option value="158">Corolla Executive</option>
+              <option value="159">Corolla H2</option>
+              <option value="160">Corolla H4</option>
+              <option value="161">Corolla H5</option>
+              <option value="162">Countryman Cooper</option>
+              <option value="163">Creta 1.4</option>
+              <option value="164">Creta 1.6</option>
+              <option value="165">CrossPolo 1.5</option>
+              <option value="166">Cruze LTZ</option>
+              <option value="167">D-MAX V-Cross</option>
+              <option value="168">Duster 110PS</option>
+              <option value="169">Duster 85PS</option>
+              <option value="170">Duster Adventure</option>
+              <option value="171">Duster Petrol</option>
+              <option value="172">Duster RXZ</option>
+              <option value="173">Dzire AMT</option>
+              <option value="174">Dzire LDI</option>
+              <option value="175">Dzire New</option>
+              <option value="176">Dzire VDI</option>
+              <option value="177">Dzire VXI</option>
+              <option value="178">Dzire ZDI</option>
+              <option value="179">E Verito</option>
+              <option value="180">E-Class 200</option>
+              <option value="181">E-Class 2009-2013</option>
+              <option value="182">E-Class 2015-2017</option>
+              <option value="183">E-Class 220</option>
+              <option value="184">E-Class 230</option>
+              <option value="185">E-Class 250</option>
+              <option value="186">E-Class 280</option>
+              <option value="187">E-Class E</option>
+              <option value="188">E-Class E250</option>
+              <option value="189">E-Class E270</option>
+              <option value="190">E-Class E350</option>
+              <option value="191">E-Class E400</option>
+              <option value="192">E-Class Facelift</option>
+              <option value="193">EON 1.0</option>
+              <option value="194">EON D</option>
+              <option value="195">EON Era</option>
+              <option value="196">EON LPG</option>
+              <option value="197">EON Magna</option>
+              <option value="198">EON Sportz</option>
+              <option value="199">EcoSport 1.0</option>
+              <option value="200">EcoSport 1.5</option>
+              <option value="201">Ecosport 1.0</option>
+              <option value="202">Ecosport 1.5</option>
+              <option value="203">Ecosport Signature</option>
+              <option value="204">Eeco 5</option>
+              <option value="205">Eeco 7</option>
+              <option value="206">Eeco CNG</option>
+              <option value="207">Eeco Smiles</option>
+              <option value="208">Elantra 1.6</option>
+              <option value="209">Elantra 2.0</option>
+              <option value="210">Elantra CRDi</option>
+              <option value="211">Elantra SX</option>
+              <option value="212">Elite i20</option>
+              <option value="213">Endeavour 2.2</option>
+              <option value="214">Endeavour 2.5L</option>
+              <option value="215">Endeavour 3.0L</option>
+              <option value="216">Endeavour 3.2</option>
+              <option value="217">Endeavour 4x2</option>
+              <option value="218">Endeavour Hurricane</option>
+              <option value="219">Endeavour Titanium</option>
+              <option value="220">Endeavour XLT</option>
+              <option value="221">Enjoy 1.3</option>
+              <option value="222">Enjoy 1.4</option>
+              <option value="223">Enjoy Petrol</option>
+              <option value="224">Enjoy TCDi</option>
+              <option value="225">Ertiga LXI</option>
+              <option value="226">Ertiga Paseo</option>
+              <option value="227">Ertiga SHVS</option>
+              <option value="228">Ertiga VDI</option>
+              <option value="229">Ertiga VXI</option>
+              <option value="230">Ertiga ZDI</option>
+              <option value="231">Ertiga ZXI</option>
+              <option value="232">Esteem LX</option>
+              <option value="233">Esteem Vxi</option>
+              <option value="234">Estilo LXI</option>
+              <option value="235">Etios 1.4</option>
+              <option value="236">Etios Cross</option>
+              <option value="237">Etios G</option>
+              <option value="238">Etios GD</option>
+              <option value="239">Etios Liva</option>
+              <option value="240">Etios Petrol</option>
+              <option value="241">Etios V</option>
+              <option value="242">Etios VD</option>
+              <option value="243">Etios VX</option>
+              <option value="244">Etios VXD</option>
+              <option value="245">Evalia 2013</option>
+              <option value="246">F Type</option>
+              <option value="247">Fabia 1.2</option>
+              <option value="248">Fabia 1.2L</option>
+              <option value="249">Fabia 1.4</option>
+              <option value="250">Fabia 1.6</option>
+              <option value="251">Fiesta 1.4</option>
+              <option value="252">Fiesta 1.5</option>
+              <option value="253">Fiesta 1.6</option>
+              <option value="254">Fiesta Classic</option>
+              <option value="255">Fiesta Diesel</option>
+              <option value="256">Fiesta EXi</option>
+              <option value="257">Fiesta Titanium</option>
+              <option value="258">Figo 1.2P</option>
+              <option value="259">Figo 1.5D</option>
+              <option value="260">Figo 2015-2019</option>
+              <option value="261">Figo Aspire</option>
+              <option value="262">Figo Diesel</option>
+              <option value="263">Figo Petrol</option>
+              <option value="264">Figo Titanium</option>
+              <option value="265">Fluence 1.5</option>
+              <option value="266">Fluence 2.0</option>
+              <option value="267">Fluence Diesel</option>
+              <option value="268">Fortuner 2.8</option>
+              <option value="269">Fortuner 3.0</option>
+              <option value="270">Fortuner 4x2</option>
+              <option value="271">Fortuner 4x4</option>
+              <option value="272">Fortuner TRD</option>
+              <option value="273">Fortwo CDI</option>
+              <option value="274">Freestyle Titanium</option>
+              <option value="275">Fusion Plus</option>
+              <option value="276">GL-Class 2007</option>
+              <option value="277">GL-Class 350</option>
+              <option value="278">GLA Class</option>
+              <option value="279">GLC 220</option>
+              <option value="280">GLC 220d</option>
+              <option value="281">GLC 43</option>
+              <option value="282">GLE 250d</option>
+              <option value="283">GLE 350d</option>
+              <option value="284">GLS 350d</option>
+              <option value="285">GO NXT</option>
+              <option value="286">GO Plus</option>
+              <option value="287">GO T</option>
+              <option value="288">Gallardo Coupe</option>
+              <option value="289">Getz 1.3</option>
+              <option value="290">Getz 1.5</option>
+              <option value="291">Getz GLE</option>
+              <option value="292">Getz GLS</option>
+              <option value="293">Getz GVS</option>
+              <option value="294">Grand Vitara</option>
+              <option value="295">Grand i10</option>
+              <option value="296">Grande Punto</option>
+              <option value="297">Hexa XT</option>
+              <option value="298">Hexa XTA</option>
+              <option value="299">Ignis 1.2</option>
+              <option value="300">Ignis 1.3</option>
+              <option value="301">Ikon 1.3</option>
+              <option value="302">Ikon 1.4</option>
+              <option value="303">Ikon 1.6</option>
+              <option value="304">Indica DLS</option>
+              <option value="305">Indica GLS</option>
+              <option value="306">Indica LEI</option>
+              <option value="307">Indica V2</option>
+              <option value="308">Indica Vista</option>
+              <option value="309">Indigo CS</option>
+              <option value="310">Indigo GLE</option>
+              <option value="311">Indigo LS</option>
+              <option value="312">Indigo LX</option>
+              <option value="313">Indigo XL</option>
+              <option value="314">Indigo eCS</option>
+              <option value="315">Innova 2.0</option>
+              <option value="316">Innova 2.5</option>
+              <option value="317">Innova Crysta</option>
+              <option value="318">Jazz 1.2</option>
+              <option value="319">Jazz 1.5</option>
+              <option value="320">Jazz Active</option>
+              <option value="321">Jazz Exclusive</option>
+              <option value="322">Jazz Mode</option>
+              <option value="323">Jazz S</option>
+              <option value="324">Jazz Select</option>
+              <option value="325">Jazz V</option>
+              <option value="326">Jazz VX</option>
+              <option value="327">Jeep MM</option>
+              <option value="328">Jetta 2007-2011</option>
+              <option value="329">Jetta 2012-2014</option>
+              <option value="330">Jetta 2013-2015</option>
+              <option value="331">KUV 100</option>
+              <option value="332">KWID 1.0</option>
+              <option value="333">KWID AMT</option>
+              <option value="334">KWID Climber</option>
+              <option value="335">KWID RXL</option>
+              <option value="336">KWID RXT</option>
+              <option value="337">Koleos 2.0</option>
+              <option value="338">Lancer 1.5</option>
+              <option value="339">Lancer GLXD</option>
+              <option value="340">Laura 1.8</option>
+              <option value="341">Laura 1.9</option>
+              <option value="342">Laura Ambiente</option>
+              <option value="343">Laura Ambition</option>
+              <option value="344">Laura Classic</option>
+              <option value="345">Laura Elegance</option>
+              <option value="346">Laura L</option>
+              <option value="347">Laura RS</option>
+              <option value="348">Linea 1.3</option>
+              <option value="349">Linea Classic</option>
+              <option value="350">Linea Emotion</option>
+              <option value="351">Linea T</option>
+              <option value="352">Linea T-Jet</option>
+              <option value="353">Lodgy 110PS</option>
+              <option value="354">Logan Diesel</option>
+              <option value="355">Logan Petrol</option>
+              <option value="356">M-Class ML</option>
+              <option value="357">MUX 4WD</option>
+              <option value="358">Manza Aqua</option>
+              <option value="359">Manza Aura</option>
+              <option value="360">Manza Club</option>
+              <option value="361">Manza ELAN</option>
+              <option value="362">Micra Active</option>
+              <option value="363">Micra Diesel</option>
+              <option value="364">Micra XE</option>
+              <option value="365">Micra XL</option>
+              <option value="366">Micra XV</option>
+              <option value="367">Mobilio E</option>
+              <option value="368">Mobilio RS</option>
+              <option value="369">Mobilio S</option>
+              <option value="370">Mobilio V</option>
+              <option value="371">Montero 3.2</option>
+              <option value="372">Mustang V8</option>
+              <option value="373">Nano CX</option>
+              <option value="374">Nano Cx</option>
+              <option value="375">Nano LX</option>
+              <option value="376">Nano Lx</option>
+              <option value="377">Nano STD</option>
+              <option value="378">Nano Twist</option>
+              <option value="379">Nano XT</option>
+              <option value="380">Nano XTA</option>
+              <option value="381">New C-Class</option>
+              <option value="382">New Safari</option>
+              <option value="383">Nexon 1.2</option>
+              <option value="384">Nexon 1.5</option>
+              <option value="385">NuvoSport N6</option>
+              <option value="386">NuvoSport N8</option>
+              <option value="387">Octavia 1.9</option>
+              <option value="388">Octavia 2.0</option>
+              <option value="389">Octavia Ambiente</option>
+              <option value="390">Octavia Ambition</option>
+              <option value="391">Octavia Classic</option>
+              <option value="392">Octavia Elegance</option>
+              <option value="393">Octavia L</option>
+              <option value="394">Octavia RS</option>
+              <option value="395">Octavia Rider</option>
+              <option value="396">Octavia Style</option>
+              <option value="397">Omni 5</option>
+              <option value="398">Omni 8</option>
+              <option value="399">Omni E</option>
+              <option value="400">Omni MPI</option>
+              <option value="401">One LX</option>
+              <option value="402">Optra 1.6</option>
+              <option value="403">Optra Magnum</option>
+              <option value="404">Outlander 2.4</option>
+              <option value="405">Pajero 2.8</option>
+              <option value="406">Pajero 4X4</option>
+              <option value="407">Pajero Sport</option>
+              <option value="408">Panamera 2010</option>
+              <option value="409">Panamera Diesel</option>
+              <option value="410">Passat 1.8</option>
+              <option value="411">Passat 2.0</option>
+              <option value="412">Passat Diesel</option>
+              <option value="413">Passat Highline</option>
+              <option value="414">Petra 1.2</option>
+              <option value="415">Platinum Etios</option>
+              <option value="416">Polo 1.0</option>
+              <option value="417">Polo 1.2</option>
+              <option value="418">Polo 1.5</option>
+              <option value="419">Polo Diesel</option>
+              <option value="420">Polo GT</option>
+              <option value="421">Polo GTI</option>
+              <option value="422">Polo IPL</option>
+              <option value="423">Polo Petrol</option>
+              <option value="424">Prius 2009-2016</option>
+              <option value="425">Pulse Petrol</option>
+              <option value="426">Pulse RxL</option>
+              <option value="427">Punto 1.2</option>
+              <option value="428">Punto 1.3</option>
+              <option value="429">Punto 1.4</option>
+              <option value="430">Punto EVO</option>
+              <option value="431">Q3 2.0</option>
+              <option value="432">Q3 2012-2015</option>
+              <option value="433">Q3 30</option>
+              <option value="434">Q3 35</option>
+              <option value="435">Q5 2.0</option>
+              <option value="436">Q5 2008-2012</option>
+              <option value="437">Q5 3.0</option>
+              <option value="438">Q5 30</option>
+              <option value="439">Q7 3.0</option>
+              <option value="440">Q7 35</option>
+              <option value="441">Q7 4.2</option>
+              <option value="442">Q7 45</option>
+              <option value="443">Qualis FS</option>
+              <option value="444">Qualis Fleet</option>
+              <option value="445">Qualis RS</option>
+              <option value="446">Quanto C2</option>
+              <option value="447">Quanto C4</option>
+              <option value="448">Quanto C6</option>
+              <option value="449">Quanto C8</option>
+              <option value="450">R-Class R350</option>
+              <option value="451">RS5 Coupe</option>
+              <option value="452">Rapid 1.5</option>
+              <option value="453">Rapid 1.6</option>
+              <option value="454">Rapid 2013-2016</option>
+              <option value="455">Rapid Leisure</option>
+              <option value="456">Rapid Ultima</option>
+              <option value="457">Redi GO</option>
+              <option value="458">Renault Logan</option>
+              <option value="459">Ritz AT</option>
+              <option value="460">Ritz LDi</option>
+              <option value="461">Ritz LXI</option>
+              <option value="462">Ritz LXi</option>
+              <option value="463">Ritz VDI</option>
+              <option value="464">Ritz VDi</option>
+              <option value="465">Ritz VXI</option>
+              <option value="466">Ritz VXi</option>
+              <option value="467">Ritz ZDi</option>
+              <option value="468">Ritz ZXI</option>
+              <option value="469">Ritz ZXi</option>
+              <option value="470">Rover Discovery</option>
+              <option value="471">Rover Freelander</option>
+              <option value="472">Rover Range</option>
+              <option value="473">S Class</option>
+              <option value="474">S Cross</option>
+              <option value="475">S-Class 280</option>
+              <option value="476">S-Class 320</option>
+              <option value="477">S-Class S</option>
+              <option value="478">S-Cross Alpha</option>
+              <option value="479">S-Cross Delta</option>
+              <option value="480">S-Cross Zeta</option>
+              <option value="481">S60 D3</option>
+              <option value="482">S60 D4</option>
+              <option value="483">S60 D5</option>
+              <option value="484">S80 2006-2013</option>
+              <option value="485">S80 D5</option>
+              <option value="486">SL-Class SL</option>
+              <option value="487">SLC 43</option>
+              <option value="488">SLK-Class 55</option>
+              <option value="489">SLK-Class SLK</option>
+              <option value="490">SX4 Green</option>
+              <option value="491">SX4 S</option>
+              <option value="492">SX4 VDI</option>
+              <option value="493">SX4 Vxi</option>
+              <option value="494">SX4 ZDI</option>
+              <option value="495">SX4 ZXI</option>
+              <option value="496">SX4 Zxi</option>
+              <option value="497">Safari DICOR</option>
+              <option value="498">Safari Storme</option>
+              <option value="499">Sail 1.2</option>
+              <option value="500">Sail Hatchback</option>
+              <option value="501">Sail LT</option>
+              <option value="502">Santa Fe</option>
+              <option value="503">Santro AT</option>
+              <option value="504">Santro D</option>
+              <option value="505">Santro DX</option>
+              <option value="506">Santro GLS</option>
+              <option value="507">Santro GS</option>
+              <option value="508">Santro LP</option>
+              <option value="509">Santro LS</option>
+              <option value="510">Santro Xing</option>
+              <option value="511">Scala Diesel</option>
+              <option value="512">Scala RxL</option>
+              <option value="513">Scorpio 1.99</option>
+              <option value="514">Scorpio 2.6</option>
+              <option value="515">Scorpio 2009-2014</option>
+              <option value="516">Scorpio DX</option>
+              <option value="517">Scorpio LX</option>
+              <option value="518">Scorpio S10</option>
+              <option value="519">Scorpio S2</option>
+              <option value="520">Scorpio S4</option>
+              <option value="521">Scorpio S6</option>
+              <option value="522">Scorpio S8</option>
+              <option value="523">Scorpio SLE</option>
+              <option value="524">Scorpio SLX</option>
+              <option value="525">Scorpio VLX</option>
+              <option value="526">Siena 1.2</option>
+              <option value="527">Sonata 2.4</option>
+              <option value="528">Sonata Embera</option>
+              <option value="529">Sonata GOLD</option>
+              <option value="530">Sonata Transform</option>
+              <option value="531">Spark 1.0</option>
+              <option value="532">Ssangyong Rexton</option>
+              <option value="533">Sumo DX</option>
+              <option value="534">Sumo Delux</option>
+              <option value="535">Sumo EX</option>
+              <option value="536">Sunny 2011-2014</option>
+              <option value="537">Sunny Diesel</option>
+              <option value="538">Sunny XE</option>
+              <option value="539">Sunny XL</option>
+              <option value="540">Sunny XV</option>
+              <option value="541">Superb 1.8</option>
+              <option value="542">Superb 2.5</option>
+              <option value="543">Superb 2.8</option>
+              <option value="544">Superb 2009-2014</option>
+              <option value="545">Superb 3.6</option>
+              <option value="546">Superb Ambition</option>
+              <option value="547">Superb Elegance</option>
+              <option value="548">Superb L&amp;K</option>
+              <option value="549">Superb Style</option>
+              <option value="550">Swift 1.3</option>
+              <option value="551">Swift AMT</option>
+              <option value="552">Swift DDiS</option>
+              <option value="553">Swift Dzire</option>
+              <option value="554">Swift LDI</option>
+              <option value="555">Swift LXI</option>
+              <option value="556">Swift LXi</option>
+              <option value="557">Swift Ldi</option>
+              <option value="558">Swift Lxi</option>
+              <option value="559">Swift RS</option>
+              <option value="560">Swift VDI</option>
+              <option value="561">Swift VDi</option>
+              <option value="562">Swift VVT</option>
+              <option value="563">Swift VXI</option>
+              <option value="564">Swift VXi</option>
+              <option value="565">Swift Vdi</option>
+              <option value="566">Swift ZDI</option>
+              <option value="567">Swift ZDi</option>
+              <option value="568">Swift ZXI</option>
+              <option value="569">TT 2.0</option>
+              <option value="570">TT 40</option>
+              <option value="571">TUV 300</option>
+              <option value="572">Tavera LS</option>
+              <option value="573">Tavera LT</option>
+              <option value="574">Teana 230jM</option>
+              <option value="575">Teana XV</option>
+              <option value="576">Terrano XL</option>
+              <option value="577">Terrano XV</option>
+              <option value="578">Thar CRDe</option>
+              <option value="579">Thar DI</option>
+              <option value="580">Tiago 1.2</option>
+              <option value="581">Tiago AMT</option>
+              <option value="582">Tiago Wizz</option>
+              <option value="583">Tigor 1.05</option>
+              <option value="584">Tigor 1.2</option>
+              <option value="585">Tigor XE</option>
+              <option value="586">Tiguan 2.0</option>
+              <option value="587">Tucson 2.0</option>
+              <option value="588">Tucson CRDi</option>
+              <option value="589">V40 Cross</option>
+              <option value="590">V40 D3</option>
+              <option value="591">Vento 1.2</option>
+              <option value="592">Vento 1.5</option>
+              <option value="593">Vento 1.6</option>
+              <option value="594">Vento 2013-2015</option>
+              <option value="595">Vento Diesel</option>
+              <option value="596">Vento IPL</option>
+              <option value="597">Vento Konekt</option>
+              <option value="598">Vento Magnific</option>
+              <option value="599">Vento Petrol</option>
+              <option value="600">Vento Sport</option>
+              <option value="601">Vento TSI</option>
+              <option value="602">Venture EX</option>
+              <option value="603">Verito 1.5</option>
+              <option value="604">Verna 1.4</option>
+              <option value="605">Verna 1.6</option>
+              <option value="606">Verna CRDi</option>
+              <option value="607">Verna SX</option>
+              <option value="608">Verna Transform</option>
+              <option value="609">Verna VTVT</option>
+              <option value="610">Verna XXi</option>
+              <option value="611">Verna Xi</option>
+              <option value="612">Versa DX2</option>
+              <option value="613">Vitara Brezza</option>
+              <option value="614">WR-V Edge</option>
+              <option value="615">WRV i-VTEC</option>
+              <option value="616">Wagon R</option>
+              <option value="617">X-Trail SLX</option>
+              <option value="618">X1 M</option>
+              <option value="619">X1 sDrive</option>
+              <option value="620">X1 sDrive20d</option>
+              <option value="621">X1 xDrive</option>
+              <option value="622">X3 xDrive</option>
+              <option value="623">X3 xDrive20d</option>
+              <option value="624">X3 xDrive30d</option>
+              <option value="625">X5 2014-2019</option>
+              <option value="626">X5 3.0d</option>
+              <option value="627">X5 X5</option>
+              <option value="628">X5 xDrive</option>
+              <option value="629">X6 xDrive</option>
+              <option value="630">X6 xDrive30d</option>
+              <option value="631">XC60 D4</option>
+              <option value="632">XC60 D5</option>
+              <option value="633">XC90 2007-2015</option>
+              <option value="634">XE 2.0L</option>
+              <option value="635">XE Portfolio</option>
+              <option value="636">XF 2.0</option>
+              <option value="637">XF 2.2</option>
+              <option value="638">XF 3.0</option>
+              <option value="639">XF Aero</option>
+              <option value="640">XF Diesel</option>
+              <option value="641">XJ 2.0L</option>
+              <option value="642">XJ 3.0L</option>
+              <option value="643">XJ 5.0</option>
+              <option value="644">XUV300 W8</option>
+              <option value="645">XUV500 AT</option>
+              <option value="646">XUV500 W10</option>
+              <option value="647">XUV500 W4</option>
+              <option value="648">XUV500 W6</option>
+              <option value="649">XUV500 W7</option>
+              <option value="650">XUV500 W8</option>
+              <option value="651">XUV500 W9</option>
+              <option value="652">Xcent 1.1</option>
+              <option value="653">Xcent 1.2</option>
+              <option value="654">Xenon XT</option>
+              <option value="655">Xylo D2</option>
+              <option value="656">Xylo D4</option>
+              <option value="657">Xylo E2</option>
+              <option value="658">Xylo E4</option>
+              <option value="659">Xylo E8</option>
+              <option value="660">Xylo H4</option>
+              <option value="661">Yeti Ambition</option>
+              <option value="662">Yeti Elegance</option>
+              <option value="663">Z4 2009-2013</option>
+              <option value="664">Zen Estilo</option>
+              <option value="665">Zen LX</option>
+              <option value="666">Zen LXI</option>
+              <option value="667">Zen LXi</option>
+              <option value="668">Zen VX</option>
+              <option value="669">Zen VXI</option>
+              <option value="670">Zen VXi</option>
+              <option value="671">Zest Quadrajet</option>
+              <option value="672">Zest Revotron</option>
+              <option value="673">i10 Asta</option>
+              <option value="674">i10 Era</option>
+              <option value="675">i10 Magna</option>
+              <option value="676">i10 Magna(O)</option>
+              <option value="677">i10 Sportz</option>
+              <option value="678">i20 1.2</option>
+              <option value="679">i20 1.4</option>
+              <option value="680">i20 2015-2017</option>
+              <option value="681">i20 Active</option>
+              <option value="682">i20 Asta</option>
+              <option value="683">i20 Diesel</option>
+              <option value="684">i20 Era</option>
+              <option value="685">i20 Magna</option>
+              <option value="686">i20 Sportz</option>
+              <option value="687">redi-GO S</option>
+              <option value="688">redi-GO T</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold" for="Location">Location</label>
+            <select id="Location" name="Location" required>
+              <option value=""></option>
+              <option value="0">Ahmedabad</option>
+              <option value="1">Bangalore</option>
+              <option value="2">Chennai</option>
+              <option value="3">Coimbatore</option>
+              <option value="4">Delhi</option>
+              <option value="5">Hyderabad</option>
+              <option value="6">Jaipur</option>
+              <option value="7">Kochi</option>
+              <option value="8">Kolkata</option>
+              <option value="9">Mumbai</option>
+              <option value="10">Pune</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold" for="Fuel_Type">Fuel Type</label>
+            <select id="Fuel_Type" name="Fuel_Type" required>
+              <option value=""></option>
+              <option value="0">CNG</option>
+              <option value="1">Diesel</option>
+              <option value="2">Electric</option>
+              <option value="3">LPG</option>
+              <option value="4">Petrol</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold" for="Transmission">Transmission</label>
+            <select id="Transmission" name="Transmission" required>
+              <option value=""></option>
+              <option value="0">Manual</option>
+              <option value="1">Automatic</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold" for="Owner_Type">Owner Type</label>
+            <select id="Owner_Type" name="Owner_Type" required>
+              <option value=""></option>
+              <option value="1">First</option>
+              <option value="2">Second</option>
+              <option value="3">Third</option>
+              <option value="4">Fourth &amp; Above</option>
+            </select>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label fw-semibold" for="Year">Year</label>
+            <input type="number" class="form-control" id="Year" name="Year" min="1990" max="2026" step="1" placeholder="e.g. 2015" required>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label fw-semibold" for="Car_Age">Car Age (years)</label>
+            <input type="number" class="form-control bg-light" id="Car_Age" name="Car_Age" readonly placeholder="Auto from Year">
+            <div class="form-text">Calculated as 2026 − Year.</div>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label fw-semibold" for="Kilometers_Driven">Kilometers Driven</label>
+            <input type="number" class="form-control" id="Kilometers_Driven" name="Kilometers_Driven" min="0" step="1" placeholder="e.g. 45000" required>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label fw-semibold" for="Mileage">Mileage (kmpl / km/kg)</label>
+            <input type="number" class="form-control" id="Mileage" name="Mileage" min="0" step="0.01" placeholder="e.g. 18.2" required>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label fw-semibold" for="Engine">Engine (CC)</label>
+            <input type="number" class="form-control" id="Engine" name="Engine" min="0" step="1" placeholder="e.g. 1199" required>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label fw-semibold" for="Power">Power (bhp)</label>
+            <input type="number" class="form-control" id="Power" name="Power" min="0" step="0.01" placeholder="e.g. 88.7" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold" for="Seats">Seats</label>
+            <input type="number" class="form-control" id="Seats" name="Seats" min="2" max="14" step="1" placeholder="e.g. 5" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold" for="Has_New_Price">New price listed?</label>
+            <select id="Has_New_Price" name="Has_New_Price" required>
+              <option value=""></option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="mt-4">
+          <button type="submit" class="btn btn-primary px-4">Predict price</button>
+        </div>
+      </form>
+    {{ result }}
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+<script>
+  ["Brand", "Model", "Location", "Fuel_Type", "Transmission", "Owner_Type", "Has_New_Price"].forEach(function (id) {
+    new TomSelect("#" + id, {
+      placeholder: "Select or search...",
+      allowEmptyOption: true,
+      maxOptions: null
+    });
+  });
+
+  // Car_Age = 2026 - Year (same formula used when training)
+  document.getElementById("Year").addEventListener("input", function () {
+    var y = parseInt(this.value, 10);
+    document.getElementById("Car_Age").value = isNaN(y) ? "" : 2026 - y;
+  });
+</script>
+</body>
+</html>
